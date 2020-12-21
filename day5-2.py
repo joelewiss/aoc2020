@@ -1,3 +1,5 @@
+# This isn't finished. I'm stuck and I have no idea why
+
 def decode(p):
 
     # Decode the first 7 characters, the row number
@@ -43,3 +45,21 @@ if __name__ == "__main__":
 
     print(f"Read {i} boarding passes")
     print(f"Max seat id {max(ids)}")
+
+
+    print(decode("BFFFBBFRRR"))
+    print(decode("FFFBBBFRRR"))
+    print(decode("BBFFBBFRLL"))
+
+
+    
+    # List of all possible seats to check against
+    all_seats = []
+    for x in range(0, 128):
+        for y in range(0, 8):
+            all_seats.append((x * 8) + y)
+    
+    for n in all_seats:
+        if (n not in ids) and (n - 1 in ids) and (n + 1 in ids):
+            print("Found seat!!")
+            print(n)
